@@ -3,47 +3,320 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مرحباً بك</title>
+  <title>سدرة المسكن | شركة عقارية</title>
+  <meta name="description" content="سدرة المسكن — شركة عقارية تقدّم حلول التسويق وإدارة المشاريع العقارية، وثقة تُبنى على نتائج." />
+  <meta property="og:title" content="سدرة المسكن | شركة عقارية" />
+  <meta property="og:description" content="حلول عقارية متكاملة: تسويق، إدارة مشاريع، واستشارات احترافية." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b3d91" />
+
+  <!-- Arabic webfont -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+
   <style>
+    :root {
+      --brand-primary: #0b3d91; /* Navy */
+      --brand-accent: #d4af37; /* Gold */
+      --brand-dark: #0a1a2b;
+      --text: #0f172a;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      font-family: "Tahoma", sans-serif;
-      background-color: #f9f9f9;
-      text-align: center;
-      padding: 40px;
+      margin: 0;
+      font-family: 'Tajawal', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .btn {
-      display: block;
-      margin: 15px auto;
-      padding: 15px 25px;
-      width: 250px;
-      border-radius: 8px;
-      font-size: 18px;
-      text-decoration: none;
-      color: white;
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; border-radius: 12px; }
+    .container { width: min(1120px, 92%); margin-inline: auto; }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0; z-index: 50;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid rgba(2, 6, 23, 0.06);
     }
-    .btn-file {
-      background-color: #0078d4;
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
     }
-    .btn-whatsapp {
-      background-color: #25d366;
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: conic-gradient(from 160deg at 50% 50%, var(--brand-accent), var(--brand-primary));
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.6), 0 6px 20px rgba(11,61,145,0.25);
+    }
+    .brand-title { font-weight: 800; letter-spacing: .3px; color: var(--brand-dark); }
+    .brand-sub { color: var(--muted); font-size: 13px; margin-top: -4px; }
+
+    /* Buttons */
+    .btn { 
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 18px; border-radius: 12px; font-weight: 800; font-size: 16px;
+      transition: transform .18s ease, box-shadow .18s ease, background-color .2s;
+      border: 0; cursor: pointer;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-lg { padding: 16px 22px; font-size: 17px; }
+    .btn-primary { background: var(--brand-primary); color: #fff; box-shadow: var(--shadow); }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-outline { color: var(--brand-primary); background: #fff; border: 2px solid rgba(11,61,145,.2); }
+    .btn-outline:hover { background: rgba(11,61,145,.05); }
+    .btn-gold { background: var(--brand-accent); color: #1a1a1a; box-shadow: var(--shadow); }
+    .btn-whatsapp { background: #25d366; color: #fff; box-shadow: var(--shadow); }
+
+    /* Legacy class mapping to keep old links valid if reused */
+    .btn-file { background: var(--brand-primary); color: #fff; }
+
+    /* Hero */
+    .hero {
+      position: relative; isolation: isolate; color: #fff;
+      background:
+        radial-gradient(1200px 500px at 90% 0%, rgba(212,175,55,0.12), transparent 50%),
+        linear-gradient(180deg, rgba(10,26,43,0.90), rgba(10,26,43,0.75)),
+        url('https://images.unsplash.com/photo-1505691723518-36a5ac3b2d18?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background: radial-gradient(800px 300px at 10% 10%, rgba(255,255,255,0.05), transparent 40%);
+    }
+    .hero-inner { padding: 96px 0 64px; }
+    .eyebrow { color: #e2e8f0; font-weight: 700; letter-spacing: .6px; margin: 0 0 10px; }
+    .hero h1 { font-size: clamp(30px, 5vw, 48px); margin: 0 0 14px; line-height: 1.15; }
+    .hero h1 .accent { color: var(--brand-accent); }
+    .subtitle { color: #e2e8f0; max-width: 60ch; margin: 0 0 28px; font-weight: 500; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    .trust-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 26px; }
+    .stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 14px 16px; }
+    .stat strong { font-size: 22px; display: block; color: #fff; }
+    .stat span { color: #cbd5e1; font-size: 14px; }
+
+    /* Sections */
+    .section { padding: 70px 0; }
+    .section h2 { font-size: clamp(24px, 4vw, 34px); margin: 0 0 10px; }
+    .section p.lead { color: var(--muted); margin: 0 0 28px; }
+
+    /* Features */
+    .features-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .feature {
+      background: var(--card); border: 1px solid rgba(2,6,23,0.06); border-radius: var(--radius);
+      padding: 20px; box-shadow: var(--shadow); transition: transform .18s ease;
+    }
+    .feature:hover { transform: translateY(-3px); }
+    .feature .icon { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 10px;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(212,175,55,0.25), rgba(11,61,145,0.15));
+      color: var(--brand-dark); font-size: 22px; }
+    .feature h3 { margin: 0 0 6px; font-size: 18px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    /* Properties */
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid rgba(2,6,23,0.06); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .card-body { padding: 16px; }
+    .meta { display: flex; gap: 10px; color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+    .price { font-weight: 800; color: var(--brand-dark); margin: 8px 0 12px; }
+
+    /* Services */
+    .services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .service { display: flex; gap: 12px; background:#fff; border: 1px solid rgba(2,6,23,0.06); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+    .service .badge { width: 26px; height: 26px; border-radius: 8px; background: rgba(11,61,145,.12); color: var(--brand-primary); display:grid; place-items:center; font-weight: 800; }
+
+    /* Footer */
+    footer { background: #0b1220; color: #cbd5e1; padding: 28px 0; margin-top: 50px; }
+    .footer-inner { display: flex; gap: 16px; justify-content: space-between; align-items: center; }
+    .footer-inner a { color: #e2e8f0; text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .features-grid, .cards, .services { grid-template-columns: 1fr 1fr; }
+      .trust-stats { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-inner { padding: 10px 0; }
+      .hero-inner { padding: 72px 0 48px; }
+      .features-grid, .cards, .services { grid-template-columns: 1fr; }
+      .cta-group { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <h2>أهلاً وسهلاً 👋</h2>
-  <p>اختر أحد الخيارات التالية:</p>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div>
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">سدرة المسكن</div>
+            <div class="brand-sub">شركة عقارية</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a class="btn btn-whatsapp" href="https://wa.me/966534102200" target="_blank" rel="noopener">💬 تواصل الآن</a>
+      </div>
+    </div>
+  </nav>
 
-  <a class="btn btn-file" href="https://drive.google.com/file/d/182p0UFjoVAaN5ZjVmNh44T0pL3xWxhrS/view?usp=sharing" target="_blank">
-    📄 استعراض بروفايل المشروع
-  </a>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">حلول تسويق وإدارة مشاريع عقارية</p>
+      <h1>نبني الثقة ونُنجز النتائج مع <span class="accent">سدرة المسكن</span></h1>
+      <p class="subtitle">نقدّم خدمات عقارية متكاملة — من دراسة الجدوى والتسويق وصولاً لإدارة المبيعات وخدمة ما بعد البيع — بخبرة ميدانية وشراكات موثوقة.</p>
 
-  <a class="btn btn-file" href="https://drive.google.com/file/d/1vmzUG-65cJV3W5PdYf--9AtI5vF4QuO6/view?usp=sharing" target="_blank">
-    📄 استعراض بروفايل سدرة المسكن 
-  </a>
+      <div class="cta-group" role="group" aria-label="روابط سريعة">
+        <a class="btn btn-lg btn-primary" href="https://drive.google.com/file/d/182p0UFjoVAaN5ZjVmNh44T0pL3xWxhrS/view?usp=sharing" target="_blank" rel="noopener">📄 استعراض بروفايل المشروع</a>
+        <a class="btn btn-lg btn-gold" href="https://drive.google.com/file/d/1vmzUG-65cJV3W5PdYf--9AtI5vF4QuO6/view?usp=sharing" target="_blank" rel="noopener">📄 بروفايل سدرة المسكن</a>
+        <a class="btn btn-lg btn-whatsapp" href="https://wa.me/966534102200" target="_blank" rel="noopener">💬 تواصل عبر واتساب</a>
+      </div>
 
-  <a class="btn btn-whatsapp" href="https://wa.me/966534102200" target="_blank">
-    💬 تواصل عبر واتساب
-  </a>
+      <div class="trust-stats">
+        <div class="stat"><strong>10+ سنـوات</strong><span>خبرة عقارية</span></div>
+        <div class="stat"><strong>50+ مشروع</strong><span>تم تسويقها</span></div>
+        <div class="stat"><strong>100%</strong><span>التزام بالمواعيد</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Why us -->
+  <section class="section">
+    <div class="container">
+      <h2>لماذا تختارنا</h2>
+      <p class="lead">نقدّم حلولاً عملية ترتكز على البيانات والسوق، مع تنفيذ احترافي يراعي تجربة العميل وهدف المستثمر.</p>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="icon">🏗️</div>
+          <h3>إدارة مشاريع</h3>
+          <p>تنسيق كامل لمراحل المشروع من التخطيط وحتى التسليم وفق مؤشرات أداء واضحة.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📈</div>
+          <h3>تسويق وبيع</h3>
+          <p>إستراتيجيات تسويق رقمية وميدانية مدعومة ببيانات تؤدي إلى نتائج ملموسة.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🤝</div>
+          <h3>شراكات موثوقة</h3>
+          <p>شبكة شركاء وخبراء لضمان التنفيذ بأعلى جودة وبأقل مخاطرة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties -->
+  <section class="section" id="properties">
+    <div class="container">
+      <h2>عقارات مميزة</h2>
+      <p class="lead">عينات توضيحية — للتواصل حول عقاراتكم أو مشاريعكم برجاء مراسلتنا عبر الواتساب.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=60" alt="فيلا فاخرة خارجية"/>
+          <div class="card-body">
+            <div class="meta"><span>فيلا • 5 غرف</span> <span>• شمال الرياض</span></div>
+            <h3 style="margin:6px 0 0; font-size:18px;">واجهة مودرن مع حديقة</h3>
+            <div class="price">2,100,000 ر.س</div>
+            <a class="btn btn-outline" href="https://wa.me/966534102200" target="_blank" rel="noopener">اطلب التفاصيل</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=60" alt="شقة حديثة داخلية"/>
+          <div class="card-body">
+            <div class="meta"><span>شقة • 3 غرف</span> <span>• جدة</span></div>
+            <h3 style="margin:6px 0 0; font-size:18px;">إطلالة بانورامية وتشطيبات فاخرة</h3>
+            <div class="price">980,000 ر.س</div>
+            <a class="btn btn-outline" href="https://wa.me/966534102200" target="_blank" rel="noopener">اطلب التفاصيل</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1600585154340-1e4ce9a1423b?auto=format&fit=crop&w=1200&q=60" alt="مجمع سكني"/>
+          <div class="card-body">
+            <div class="meta"><span>مجمع سكني</span> <span>• الدمام</span></div>
+            <h3 style="margin:6px 0 0; font-size:18px;">مرافق متكاملة وخدمات مشتركة</h3>
+            <div class="price">على السوم</div>
+            <a class="btn btn-outline" href="https://wa.me/966534102200" target="_blank" rel="noopener">اطلب التفاصيل</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2>خدماتنا</h2>
+      <div class="services">
+        <div class="service">
+          <div class="badge">✓</div>
+          <div>
+            <strong>إستشارات ودراسات جدوى</strong>
+            <div class="muted">تحليل السوق وتحديد أفضل إستراتيجيات الدخول والتموضع.</div>
+          </div>
+        </div>
+        <div class="service">
+          <div class="badge">✓</div>
+          <div>
+            <strong>بناء الهوية والتسويق</strong>
+            <div class="muted">هوية بصرية ورسائل تسويقية مدروسة وقنوات رقمية فعالة.</div>
+          </div>
+        </div>
+        <div class="service">
+          <div class="badge">✓</div>
+          <div>
+            <strong>إدارة المبيعات وخدمة العملاء</strong>
+            <div class="muted">فرق مبيعات مدرّبة ونُظم متابعة وتحويل عالية الجودة.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="feature" style="display:flex; align-items:center; justify-content:space-between; gap:14px;">
+        <div>
+          <h2 style="margin:0 0 6px;">جاهزون لنبدأ معكم</h2>
+          <p class="lead" style="margin:0;">تواصلوا معنا لعرض بروفايل مشاريعكم أو طلب عرض سعر لخدماتنا.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="https://wa.me/966534102200" target="_blank" rel="noopener">💬 تواصل عبر واتساب</a>
+          <a class="btn btn-outline" href="#properties">مشاهدة العقارات</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> سدرة المسكن — جميع الحقوق محفوظة</div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+        <a href="https://wa.me/966534102200" target="_blank" rel="noopener">واتساب</a>
+        <a href="#services">الخدمات</a>
+        <a href="#properties">العقارات</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // تحديث سنة الحقوق تلقائياً
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
 
