@@ -1,831 +1,260 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>سدرة المسكن - شركة عقارية رائدة</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Cairo', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    /* Header Styles */
-    .header {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      color: white;
-      padding: 1rem 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .logo i {
-      color: #ffd700;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-menu a:hover {
-      color: #ffd700;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><rect fill="%23e0e0e0" x="0" y="200" width="1200" height="200"/><rect fill="%23d0d0d0" x="0" y="300" width="1200" height="100"/><circle fill="%23c0c0c0" cx="100" cy="150" r="50"/><circle fill="%23b0b0b0" cx="300" cy="100" r="30"/><circle fill="%23a0a0a0" cx="500" cy="180" r="40"/><rect fill="%2390a0b0" x="800" y="100" width="200" height="150" rx="10"/><rect fill="%2380a0c0" x="1000" y="120" width="150" height="100" rx="5"/></svg>');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-
-    .hero-content h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .hero-content p {
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease-out 0.3s both;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fadeInUp 1s ease-out 0.6s both;
-    }
-
-    .btn {
-      padding: 15px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      min-width: 200px;
-      justify-content: center;
-    }
-
-    .btn-primary {
-      background: linear-gradient(45deg, #ffd700, #ffed4e);
-      color: #1e3c72;
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-
-    .btn-secondary:hover {
-      background: white;
-      color: #1e3c72;
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-      background: linear-gradient(45deg, #25d366, #128c7e);
-      color: white;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    }
-
-    /* Services Section */
-    .services {
-      padding: 5rem 0;
-      background: #f8f9fa;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1e3c72;
-      margin-bottom: 3rem;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .service-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
-
-    .service-icon {
-      font-size: 3rem;
-      color: #1e3c72;
-      margin-bottom: 1rem;
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #1e3c72;
-    }
-
-    .service-card p {
-      color: #666;
-      line-height: 1.6;
-    }
-
-    /* Properties Section */
-    .properties {
-      padding: 5rem 0;
-      background: white;
-    }
-
-    .properties-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .property-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .property-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
-
-    .property-image {
-      height: 250px;
-      background: linear-gradient(45deg, #e3f2fd, #bbdefb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: #1e3c72;
-    }
-
-    .property-info {
-      padding: 1.5rem;
-    }
-
-    .property-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #1e3c72;
-      margin-bottom: 0.5rem;
-    }
-
-    .property-location {
-      color: #666;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .property-features {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .feature {
-      background: #f0f8ff;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      color: #1e3c72;
-    }
-
-    .property-price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #ffd700;
-      margin-bottom: 1rem;
-    }
-
-    /* About Section */
-    .about {
-      padding: 5rem 0;
-      background: #f8f9fa;
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1e3c72;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-text p {
-      font-size: 1.1rem;
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .stat {
-      text-align: center;
-      padding: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #1e3c72;
-    }
-
-    .stat-label {
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    .about-image {
-      background: linear-gradient(45deg, #e3f2fd, #bbdefb);
-      height: 400px;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: #1e3c72;
-    }
-
-    /* Contact Section */
-    .contact {
-      padding: 5rem 0;
-      background: #1e3c72;
-      color: white;
-    }
-
-    .contact-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .contact-info h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-icon {
-      font-size: 1.5rem;
-      color: #ffd700;
-      width: 30px;
-    }
-
-    .contact-details h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .contact-details p {
-      color: #ccc;
-    }
-
-    .contact-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    /* Footer */
-    .footer {
-      background: #0f1f3a;
-      color: white;
-      padding: 2rem 0;
-      text-align: center;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-links a {
-      color: white;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #ffd700;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .nav-menu {
-        display: none;
-      }
-
-      .mobile-menu-toggle {
-        display: block;
-      }
-
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-content p {
-        font-size: 1.1rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .about-content,
-      .contact-content {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .services-grid,
-      .properties-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Add padding to body to account for fixed header */
-    body {
-      padding-top: 80px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سدرة المسكن - شركة عقارية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            margin-bottom: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .logo .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-height: 80px;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        .link-content {
+            text-align: right;
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .whatsapp-icon {
+            color: #25d366;
+        }
+
+        .project-icon {
+            color: #ffd700;
+        }
+
+        .company-icon {
+            color: #4a90e2;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+
+            .link-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .link-content {
+                text-align: center;
+            }
+
+            .link-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .link-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .link-card:nth-child(1) {
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .link-card:nth-child(2) {
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .link-card:nth-child(3) {
+            animation-delay: 0.6s;
+            animation-fill-mode: both;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="nav-container">
-      <div class="logo">
-        <i class="fas fa-home"></i>
-        سدرة المسكن
-      </div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#home">الرئيسية</a></li>
-          <li><a href="#services">خدماتنا</a></li>
-          <li><a href="#properties">العقارات</a></li>
-          <li><a href="#about">من نحن</a></li>
-          <li><a href="#contact">تواصل معنا</a></li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>سدرة المسكن</h1>
-      <p>شركة عقارية رائدة في المملكة العربية السعودية</p>
-      <p>نقدم لك أفضل الخدمات العقارية والحلول السكنية المتميزة</p>
-      <div class="cta-buttons">
-        <a href="#properties" class="btn btn-primary">
-          <i class="fas fa-search"></i>
-          استكشف العقارات
-        </a>
-        <a href="https://wa.me/966534102200" class="btn btn-whatsapp" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-          تواصل معنا
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services">
     <div class="container">
-      <h2 class="section-title">خدماتنا المتميزة</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-home"></i>
-          </div>
-          <h3>بيع العقارات</h3>
-          <p>نقدم لك أفضل العقارات السكنية والتجارية مع ضمان الجودة والأمان</p>
+        <div class="logo">
+            <h1><i class="fas fa-home"></i> سدرة المسكن</h1>
+            <p>شركة عقارية رائدة</p>
+            <p class="subtitle">نقدم لك أفضل الخدمات العقارية والحلول السكنية المتميزة</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-key"></i>
-          </div>
-          <h3>تأجير العقارات</h3>
-          <p>خدمات تأجير متنوعة تناسب جميع الاحتياجات والميزانيات</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>استشارات عقارية</h3>
-          <p>نصائح وخبرات مهنية لمساعدتك في اتخاذ القرارات الصحيحة</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-handshake"></i>
-          </div>
-          <h3>إدارة العقارات</h3>
-          <p>خدمات إدارة شاملة لضمان الحصول على أفضل عائد من استثمارك</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-file-contract"></i>
-          </div>
-          <h3>الخدمات القانونية</h3>
-          <p>معالجة جميع الأوراق والمستندات القانونية بسرعة ودقة</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-search"></i>
-          </div>
-          <h3>تقييم العقارات</h3>
-          <p>تقييم دقيق وعادل للعقارات بناءً على المعايير السوقية</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Properties Section -->
-  <section id="properties" class="properties">
-    <div class="container">
-      <h2 class="section-title">عقاراتنا المميزة</h2>
-      <div class="properties-grid">
-        <div class="property-card">
-          <div class="property-image">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="property-info">
-            <h3 class="property-title">فيلا فاخرة في الرياض</h3>
-            <p class="property-location">
-              <i class="fas fa-map-marker-alt"></i>
-              حي النرجس، الرياض
-            </p>
-            <div class="property-features">
-              <span class="feature">5 غرف</span>
-              <span class="feature">3 حمامات</span>
-              <span class="feature">صالة</span>
-            </div>
-            <div class="property-price">2,500,000 ريال</div>
-            <a href="https://wa.me/966534102200" class="btn btn-primary" target="_blank">
-              <i class="fas fa-phone"></i>
-              استفسر الآن
+        <div class="links-container">
+            <a href="https://drive.google.com/file/d/182p0UFjoVAaN5ZjVmNh44T0pL3xWxhrS/view?usp=sharing" class="link-card" target="_blank">
+                <div class="link-icon project-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">بروفايل المشروع</div>
+                    <div class="link-description">استعراض تفاصيل المشروع العقاري الجديد</div>
+                </div>
             </a>
-          </div>
-        </div>
 
-        <div class="property-card">
-          <div class="property-image">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="property-info">
-            <h3 class="property-title">شقة عصرية في جدة</h3>
-            <p class="property-location">
-              <i class="fas fa-map-marker-alt"></i>
-              حي الزهراء، جدة
-            </p>
-            <div class="property-features">
-              <span class="feature">3 غرف</span>
-              <span class="feature">2 حمام</span>
-              <span class="feature">مطبخ</span>
-            </div>
-            <div class="property-price">1,200,000 ريال</div>
-            <a href="https://wa.me/966534102200" class="btn btn-primary" target="_blank">
-              <i class="fas fa-phone"></i>
-              استفسر الآن
+            <a href="https://drive.google.com/file/d/1vmzUG-65cJV3W5PdYf--9AtI5vF4QuO6/view?usp=sharing" class="link-card" target="_blank">
+                <div class="link-icon company-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">بروفايل الشركة</div>
+                    <div class="link-description">تعرف على شركة سدرة المسكن وخدماتنا</div>
+                </div>
             </a>
-          </div>
-        </div>
 
-        <div class="property-card">
-          <div class="property-image">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="property-info">
-            <h3 class="property-title">مكتب تجاري في الدمام</h3>
-            <p class="property-location">
-              <i class="fas fa-map-marker-alt"></i>
-              حي الفيصلية، الدمام
-            </p>
-            <div class="property-features">
-              <span class="feature">200 م²</span>
-              <span class="feature">موقف سيارات</span>
-              <span class="feature">مصعد</span>
-            </div>
-            <div class="property-price">800,000 ريال</div>
-            <a href="https://wa.me/966534102200" class="btn btn-primary" target="_blank">
-              <i class="fas fa-phone"></i>
-              استفسر الآن
+            <a href="https://wa.me/966534102200" class="link-card" target="_blank">
+                <div class="link-icon whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-title">تواصل عبر واتساب</div>
+                    <div class="link-description">تواصل معنا مباشرة للحصول على استشارة مجانية</div>
+                </div>
             </a>
-          </div>
         </div>
-      </div>
+
+        <div class="footer">
+            <p>&copy; 2024 سدرة المسكن. جميع الحقوق محفوظة.</p>
+        </div>
     </div>
-  </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-text">
-          <h2>من نحن</h2>
-          <p>سدرة المسكن هي شركة عقارية رائدة في المملكة العربية السعودية، تأسست بهدف تقديم أفضل الخدمات العقارية لعملائنا الكرام. نحن نؤمن بأن المنزل ليس مجرد مكان للإقامة، بل هو حلم يتحقق.</p>
-          <p>نتميز بخبرة واسعة في السوق العقاري السعودي، وفريق عمل محترف يحرص على تقديم أفضل الخدمات وأعلى مستويات الجودة. نسعى دائماً لتحقيق رضا عملائنا وضمان حصولهم على أفضل العقارات التي تناسب احتياجاتهم وميزانياتهم.</p>
-          <div class="about-stats">
-            <div class="stat">
-              <div class="stat-number">500+</div>
-              <div class="stat-label">عقار مباع</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">1000+</div>
-              <div class="stat-label">عميل راضي</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">15+</div>
-              <div class="stat-label">سنة خبرة</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">24/7</div>
-              <div class="stat-label">خدمة عملاء</div>
-            </div>
-          </div>
-        </div>
-        <div class="about-image">
-          <i class="fas fa-users"></i>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="contact-content">
-        <div class="contact-info">
-          <h2>تواصل معنا</h2>
-          <p>نحن هنا لمساعدتك في العثور على العقار المثالي. تواصل معنا اليوم واحصل على استشارة مجانية.</p>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="contact-details">
-              <h3>الهاتف</h3>
-              <p>+966 53 410 2200</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fab fa-whatsapp"></i>
-            </div>
-            <div class="contact-details">
-              <h3>واتساب</h3>
-              <p>تواصل معنا مباشرة</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <h3>البريد الإلكتروني</h3>
-              <p>info@sidrat-almaskan.com</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h3>العنوان</h3>
-              <p>الرياض، المملكة العربية السعودية</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-buttons">
-          <a href="https://drive.google.com/file/d/182p0UFjoVAaN5ZjVmNh44T0pL3xWxhrS/view?usp=sharing" class="btn btn-primary" target="_blank">
-            <i class="fas fa-file-pdf"></i>
-            استعراض بروفايل المشروع
-          </a>
-
-          <a href="https://drive.google.com/file/d/1vmzUG-65cJV3W5PdYf--9AtI5vF4QuO6/view?usp=sharing" class="btn btn-primary" target="_blank">
-            <i class="fas fa-file-pdf"></i>
-            استعراض بروفايل سدرة المسكن
-          </a>
-
-          <a href="https://wa.me/966534102200" class="btn btn-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            تواصل عبر واتساب
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div>
-        <p>&copy; 2024 سدرة المسكن. جميع الحقوق محفوظة.</p>
-      </div>
-      <div class="social-links">
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/966534102200" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    mobileMenuToggle.addEventListener('click', () => {
-      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Add scroll effect to header
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('.header');
-      if (window.scrollY > 100) {
-        header.style.background = 'rgba(30, 60, 114, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
-      } else {
-        header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
-        header.style.backdropFilter = 'none';
-      }
-    });
-  </script>
-</body>
-</html>  💬 تواصل عبر واتساب
-  </a>
+    <script>
+        // Add smooth hover effects
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
-
