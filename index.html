@@ -3,46 +3,547 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مرحباً بك</title>
+  <title>سدرة المسكن - شريكك في الاستثمار العقاري</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    body {
-      font-family: "Tahoma", sans-serif;
-      background-color: #f9f9f9;
-      text-align: center;
-      padding: 40px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: "Cairo", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    .header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      color: #ffd700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><g fill="%23e6f3ff"><circle cx="200" cy="150" r="80"/><circle cx="800" cy="400" r="120"/><circle cx="1000" cy="200" r="60"/></g></svg>');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 2rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
     .btn {
-      display: block;
-      margin: 15px auto;
-      padding: 15px 25px;
-      width: 250px;
-      border-radius: 8px;
-      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
       text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffd700, #ffed4e);
+      color: #1e3c72;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366, #128c7e);
       color: white;
     }
-    .btn-file {
-      background-color: #0078d4;
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
     }
-    .btn-whatsapp {
-      background-color: #25d366;
+
+    /* Services Section */
+    .services {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3c72;
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e3c72;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    }
+
+    .project-image {
+      height: 200px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1e3c72;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-content p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-item i {
+      color: #ffd700;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .footer p {
+      opacity: 0.8;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* Scroll animations */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .scroll-animate.show {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-  <h2>أهلاً وسهلاً 👋</h2>
-  <p>اختر أحد الخيارات التالية:</p>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-building"></i>
+        سدرة المسكن
+      </div>
+    </div>
+  </header>
 
-  <a class="btn btn-file" href="https://drive.google.com/file/d/182p0UFjoVAaN5ZjVmNh44T0pL3xWxhrS/view?usp=sharing" target="_blank">
-    📄 استعراض بروفايل المشروع
-  </a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>مرحباً بكم في سدرة المسكن</h1>
+      <p>شريككم الموثوق في الاستثمار العقاري وتطوير المشاريع السكنية المتميزة</p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/182p0UFjoVAaN5ZjVmNh44T0pL3xWxhrS/view?usp=sharing" target="_blank">
+          <i class="fas fa-file-alt"></i>
+          استعراض بروفايل المشروع
+        </a>
+        <a class="btn btn-secondary" href="https://drive.google.com/file/d/1vmzUG-65cJV3W5PdYf--9AtI5vF4QuO6/view?usp=sharing" target="_blank">
+          <i class="fas fa-building"></i>
+          بروفايل سدرة المسكن
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <a class="btn btn-file" href="https://drive.google.com/file/d/1vmzUG-65cJV3W5PdYf--9AtI5vF4QuO6/view?usp=sharing" target="_blank">
-    📄 استعراض بروفايل سدرة المسكن 
-  </a>
+  <!-- Services Section -->
+  <section class="services scroll-animate">
+    <div class="container">
+      <div class="section-title">
+        <h2>خدماتنا المتميزة</h2>
+        <p>نقدم مجموعة شاملة من الخدمات العقارية لتلبية جميع احتياجاتكم</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3>تطوير المشاريع السكنية</h3>
+          <p>تصميم وتطوير مشاريع سكنية عصرية تلبي أعلى معايير الجودة والراحة</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>الاستشارات العقارية</h3>
+          <p>خدمات استشارية متخصصة لمساعدتكم في اتخاذ القرارات الاستثمارية الصحيحة</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>إدارة الاستثمارات</h3>
+          <p>إدارة محترفة لاستثماراتكم العقارية لضمان أفضل العوائد</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <a class="btn btn-whatsapp" href="https://wa.me/966534102200" target="_blank">
-    💬 تواصل عبر واتساب
+  <!-- Projects Section -->
+  <section class="projects scroll-animate">
+    <div class="container">
+      <div class="section-title">
+        <h2>مشاريعنا المميزة</h2>
+        <p>اكتشفوا مجموعة من أفضل المشاريع العقارية التي نفخر بتطويرها</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="project-content">
+            <h3>مجمع سدرة السكني</h3>
+            <p>مجمع سكني متكامل يضم وحدات سكنية عصرية مع جميع الخدمات والمرافق</p>
+            <a class="btn btn-primary" href="https://drive.google.com/file/d/182p0UFjoVAaN5ZjVmNh44T0pL3xWxhrS/view?usp=sharing" target="_blank">
+              <i class="fas fa-eye"></i>
+              عرض التفاصيل
+            </a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="project-content">
+            <h3>فلل سدرة الفاخرة</h3>
+            <p>مجموعة من الفلل الفاخرة بتصاميم عصرية ومساحات واسعة</p>
+            <a class="btn btn-primary" href="https://drive.google.com/file/d/1vmzUG-65cJV3W5PdYf--9AtI5vF4QuO6/view?usp=sharing" target="_blank">
+              <i class="fas fa-eye"></i>
+              عرض التفاصيل
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact scroll-animate">
+    <div class="container">
+      <div class="contact-content">
+        <h2>تواصل معنا</h2>
+        <p>نحن هنا لمساعدتكم في تحقيق أحلامكم العقارية</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+966 53 410 2200</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@sidrat-almaskan.com</span>
+          </div>
+        </div>
+        <a class="btn btn-whatsapp" href="https://wa.me/966534102200" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          تواصل عبر واتساب
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 سدرة المسكن. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Add smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>  💬 تواصل عبر واتساب
   </a>
 </body>
 </html>
